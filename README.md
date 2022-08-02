@@ -30,7 +30,7 @@ Must be installed with GNU compiler, it will not work with other compilers.
 - If newer libraries exist edit script paths for changes in future.
 
 # Post-Processing Software Included
-##RIP4
+## RIP4
 User Guide: https://www2.mmm.ucar.edu/wrf/users/docs/ripug.htm
 ## UPP v4.1
 User Guide: https://dtcenter.org/sites/default/files/community-code/upp-users-guide-v4.1.pdf
