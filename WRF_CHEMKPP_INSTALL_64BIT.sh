@@ -14,14 +14,14 @@ START=$(date +"%s")
 ######################## DTC's MET & METplus ###########################
 ## See script for details
 
-$HOME/WRFCHEM-4.4-install-script-linux-64bit/MET_self_install_script_Linux_64bit.sh
+$HOME/WRFCHEM-Install-Script-Linux-64bit/MET_self_install_script_Linux_64bit.sh
 
 read -t 5 -p "Finished installing MET & METplus. I am going to wait for 5 seconds only ..."
 
 ######################## UCAR's WRF-CHEM Tools #########################
 ## See script for details
 
-$HOME/WRFCHEM-4.4-install-script-linux-64bit/WRFCHEM_Tools_install.sh
+$HOME/WRFCHEM-Install-Script-Linux-64bit/WRFCHEM_Tools_install.sh
 
 read -t 5 -p "Finished installing WRF CHEM Tools. I am going to wait for 5 seconds only ..."
 
@@ -376,7 +376,7 @@ export PATH=$HOME/WRFCHEM/GrADS/Contents:$PATH
 ########### https://www.ncl.ucar.edu/index.shtml      ##################
 
 #Installing Miniconda3 to WRF directory and updating libraries
-source $HOME/WRFCHEM-4.4-install-script-linux-64bit/Miniconda3_CHEM_Install.sh
+source $HOME/WRFCHEM-Install-Script-Linux-64bit/Miniconda3_CHEM_Install.sh
 
 
 
@@ -452,8 +452,8 @@ conda deactivate
 
 
 
-############################ WRFCHEM 4.4 #################################
-## WRF CHEM v4.4
+############################ WRFCHEM 4.4.1 #################################
+## WRF CHEM v4.4.1
 ## Downloaded from git tagged releases
 # option 34, option 1 for gfortran and distributed memory w/basic nesting
 # If the script comes back asking to locate a file (libfl.a)
@@ -482,9 +482,9 @@ export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 #Downloading WRF code
 
 cd $HOME/WRFCHEM/Downloads
-wget -c https://github.com/wrf-model/WRF/releases/download/v4.4/v4.4.tar.gz -O WRF-4.4.tar.gz
-tar -xvzf WRF-4.4.tar.gz -C $HOME/WRFCHEM
-cd $HOME/WRFCHEM/WRFV4.4
+wget -c https://github.com/wrf-model/WRF/releases/download/v4.4.1/v4.4.1.tar.gz -O WRF-4.4.1.tar.gz
+tar -xvzf WRF-4.4.1.tar.gz -C $HOME/WRFCHEM
+cd $HOME/WRFCHEM/WRFV4.4.1
 
 cd chem/KPP
 sed -i -e 's/="-O"/="-O0"/' configure_kpp
@@ -493,8 +493,8 @@ cd -
 ./clean -a
 ./configure # option 34, option 1 for gfortran and distributed memory w/basic nesting
 ./compile -j $CPU_HALF_EVEN em_real 
-./compile -j $CPU_HALF_EVEN em_real 
-export WRF_DIR=$HOME/WRFCHEM/WRFV4.4
+
+export WRF_DIR=$HOME/WRFCHEM/WRFV4.4.1
 
 read -t 5 -p "I am going to wait for 5 seconds only ..."
 ############################WPSV4.4#####################################
@@ -655,5 +655,5 @@ DIFF=$(($END-$START))
 echo "Install Start Time: ${start}"
 echo "Install End Time: ${end}"
 echo "Install Duration: $(($DIFF / 3600 )) hours $((($DIFF % 3600) / 60)) minutes $(($DIFF % 60)) seconds"
-echo "Congratulations! You've successfully installed all required files to run the Weather Research Forecast Model Chemistry verison 4.4."
+echo "Congratulations! You've successfully installed all required files to run the Weather Research Forecast Model Chemistry verison 4.4.1."
 echo "Thank you for using this script" 
